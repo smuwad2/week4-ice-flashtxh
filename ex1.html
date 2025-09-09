@@ -19,12 +19,35 @@
         
             function validateForm(formName) {
                 // Error messages:
-                // Invalid age: Age must be between 10 and 40.
-                // Invalid email: Email must contain the character @.
-                // Empty password: Password must be non-empty.
                 var errorMessages="";
-                
-                
+                let form = document.forms[formName];
+                let id = form["id"].value;
+                if (id.length > 10) {
+                    errorMessages += "ID can't be longer than 10 character.\n";
+                }
+
+                // Invalid age: Age must be between 10 and 40.
+
+                let age = form["age"].value;
+                if (age < 10 || age > 40) {
+                    errorMessages += "Age must be between 10 and 40.\n";
+                }
+                // Invalid email: Email must contain the character @.
+                let email = form["email"].value;
+                if (!email.includes("@")) {
+                    errorMessages += "Email must contain the character @.\n";
+                }
+                // Empty password: Password must be non-empty.
+                let password = form["password"].value;
+                if (password.trim() === ""){
+                    errorMessages += "Password must be non-empty.\n";
+                }
+
+                if (errorMessages) {
+                    alert(errorMessages);
+                    return false;
+                }
+                return true;
             }
      
          </script>

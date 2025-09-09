@@ -10,7 +10,8 @@
         }
 
         /* add CSS code here */
-        
+
+
     </style>
 
     
@@ -26,6 +27,10 @@
     <script>
         var square=true;
        // add code here
+       function changeShape(){
+        document.getElementById("div1").style.borderRadius = square ? "50%" : "0";
+        square = !square;
+       }
         
     </script>
 
